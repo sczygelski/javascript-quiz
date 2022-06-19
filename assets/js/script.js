@@ -5,6 +5,7 @@ var startit = document.getElementById('start')
 startit.addEventListener('click', startQuiz)
 function startQuiz() {
     console.log('started')
+    startit.classList.add('hide')
 }
 
 //Show questions
