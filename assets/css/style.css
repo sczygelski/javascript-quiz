@@ -21,6 +21,12 @@ div {
     text-align:center;
 }
 
+
+main {
+    border: 3px solid #2E3F37;
+    background-color: rgba(212, 204, 188, 0.5);
+}
+
 button {
     background-color: #2E3F37;
     border: 5px;
