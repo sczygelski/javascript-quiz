@@ -37,14 +37,5 @@ button {
 }
 
 .ansbutton {
-    font-size: 25px;
-    --hue: var(--hue-neutral);
-}
-
-.ansbutton.corrent {
-    --hue: var(--hue-correct);
-}
-
-.ansbutton.wrong {
-    --hue: var(--hue-wrong);
+    font-size: 20px;
 }
