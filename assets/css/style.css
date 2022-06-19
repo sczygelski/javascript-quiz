@@ -12,11 +12,6 @@ header h1 {
     color: #2E3F37;
 }
 
-header p {
-    text-align: center;
-    font-size: 20px;
-}
-
 div {
     text-align:center;
 }
@@ -39,4 +34,8 @@ button {
 
 .questions {
     text-align: center;
+}
+
+.ansbutton {
+    font-size: 25px;
 }
