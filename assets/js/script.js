@@ -7,12 +7,7 @@ var answering = document.getElementById('answers')
 //questions
 let allquestions = {
     title: 'What is my name?',
-    answers: [
-        {text: 'Ava', correct:true},
-        {text: 'Brad', correct:false},
-        {text: 'Chad', correct:false},
-        {text: 'Dad', correct:false}
-    ]
+    answers: ['Ava','Lucas','Sid','Andrea']
 }
 
 //trigger the button to start quiz
@@ -30,10 +25,11 @@ function showquestions(q){
     let questionDiv = document.getElementById('title');
     questionDiv.textContent = q.title;
     let answering = document.querySelectorAll('.ansbutton');
-    answering.forEach(function(element){
-        element.textContent = answering.text
-    })
+    answering.forEach(function(element, index){
+        element.textContent = q.answers[index];
+    })    
 }
+
 showquestions(allquestions);
 
 //Save answers
