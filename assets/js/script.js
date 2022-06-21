@@ -1,9 +1,18 @@
 //variables
 var startit = document.getElementById('start')
 var questioning = document.getElementById('questionscontainer')
-var answering = document.getElementById('answers')
 var allquestionsElement = document.getElementById('questionscontainer')
-var actualquestionElement = document.getElementById('actualquestion')
+
+//questions
+let allquestions = {
+    title: 'What is my name?',
+    answers: [
+        {text: 'Ava', correct:true},
+        {text: 'Brad', correct:false},
+        {text: 'Chad', correct:false},
+        {text: 'Dad', correct:false}
+    ]
+}
 
 //trigger the button to start quiz
 startit.addEventListener('click', startQuiz)
@@ -16,11 +25,12 @@ function startQuiz() {
 }
 
 //Show questions
-function beginquestions() {
-   allquestions.forEach((currentQuestion, questionNumber) => {
-       
-   })
-};
+function showquestions(q){
+    let questionDiv = document.getElementById('title');
+
+    questionDiv.textContent = q.title;
+}
+showquestions(allquestions);
 
 //Save answers
 function answerchosen() {
@@ -30,15 +40,3 @@ function answerchosen() {
 //highscores
 
 
-//questions
-var allquestions = [
-    {
-    question: 'What is my name?',
-    answers: [
-        {text: 'Ava', correct:true},
-        {text: 'Brad', correct:false},
-        {text: 'Chad', correct:false},
-        {text: 'Dad', correct:false}
-    ]
-    }
-]
