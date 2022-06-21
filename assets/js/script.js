@@ -7,8 +7,10 @@ var answering = document.getElementById('answers')
 //questions
 let allquestions = {
     title: 'What is my name?',
-    answers: ['Ava','Lucas','Sid','Andrea']
+    answers: ['Ava','Lucas','Sid','Andrea'],
+    answerchosen: 1,
 }
+
 
 //trigger the button to start quiz
 startit.addEventListener('click', startQuiz)
@@ -27,7 +29,12 @@ function showquestions(q){
     let answering = document.querySelectorAll('.ansbutton');
     answering.forEach(function(element, index){
         element.textContent = q.answers[index];
-    })    
+        element.addEventListener('click', function() {
+            if(q.answerchosen == index) {
+                console.log('correctamundo');
+            }
+        });
+    });    
 }
 
 showquestions(allquestions);
