@@ -6,8 +6,8 @@ var answering = document.getElementById('answers')
 
 //questions
 let allquestions = {
-    title: 'What is my name?',
-    answers: ['Ava','Lucas','Sid','Andrea'],
+    title: 'What is used for an array?',
+    answers: ['()','[]','{}','<>'],
     answerchosen: 1,
 }
 
