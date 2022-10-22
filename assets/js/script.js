@@ -2,8 +2,6 @@
 var startit = document.getElementById("start");
 var questioning = document.getElementById("questionscontainer");
 var answering = document.getElementById("answers");
-var questionindex = 0;
-
 var buttona = document.getElementById("a");
 var buttonb = document.getElementById("b");
 var buttonc = document.getElementById("c");
@@ -31,9 +29,10 @@ var allquestions = [
   },
 ];
 
-var finalquestion = allquestions.length;
+
 var finalindex = allquestions.length
 var score=0
+var questionindex = 0;
 
 //trigger the button to start quiz
 startit.addEventListener("click", startQuiz);
@@ -59,10 +58,11 @@ function startQuizing() {
 function checkanswers(answer) {
   correct = allquestions[questionindex]
 
-  if (answer === correct && finalindex !== finalquestion) {
+  if (answer === correct && finalindex !== questionindex) {
     questionindex++;
+    score++
     startQuizing();
-  } else if (answer !== correct && finalindex !== finalquestion) {
+  } else if (answer !== correct && finalindex !== questionindex) {
     questionindex++;
     startQuizing();
     console.log("stuck here")
