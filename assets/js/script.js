@@ -3,7 +3,7 @@ var startit = document.getElementById('start')
 var questioning = document.getElementById('questionscontainer')
 var allquestionsElement = document.getElementById('questionscontainer')
 var answering = document.getElementById('answers')
-var count=10
+
 
 //questions
 let allquestions = [{
