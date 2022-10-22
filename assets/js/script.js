@@ -3,14 +3,16 @@ var startit = document.getElementById("start");
 var questioning = document.getElementById("questionscontainer");
 var answering = document.getElementById("answers");
 var questionindex = 0;
+
 var buttona = document.getElementById("a");
 var buttonb = document.getElementById("b");
 var buttonc = document.getElementById("c");
 var buttond = document.getElementById("d");
+var submitit = document.getElementById("finalscore")
 
 
 //questions
-let allquestions = [
+var allquestions = [
   {
     title: "What type of brackets show an arrey?",
     a: "{}",
@@ -30,6 +32,7 @@ let allquestions = [
 ];
 
 var finalquestion = allquestions.length;
+var finalindex = allquestions.length
 var score=0
 
 //trigger the button to start quiz
@@ -54,16 +57,18 @@ function startQuizing() {
 
 //check answers
 function checkanswers(answer) {
-  correct = allquestions[questionindex].answerchosen;
+  correct = allquestions[questionindex]
 
-  if (answer === correct && questionindex !== finalquestion) {
+  if (answer === correct && finalindex !== finalquestion) {
     questionindex++;
     startQuizing();
-  } else if (answer !== correct && questionindex !== finalquestion) {
+  } else if (answer !== correct && finalindex !== finalquestion) {
     questionindex++;
     startQuizing();
+    console.log("stuck here")
   } else {
     showscore();
+    submitit.classList.remove("hide")
   }
 }
 
