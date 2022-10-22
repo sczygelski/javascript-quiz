@@ -1,61 +1,53 @@
 //variables
-var startit = document.getElementById('start')
-var questioning = document.getElementById('questionscontainer')
-var allquestionsElement = document.getElementById('questionscontainer')
-var answering = document.getElementById('answers')
-
+var startit = document.getElementById("start");
+var questioning = document.getElementById("questionscontainer");
+var allquestionsElement = document.getElementById("questionscontainer");
+var answering = document.getElementById("answers");
+var questionindex = 0;
 
 //questions
-let allquestions = [{
-    title: 'What type of brackets show an arrey?',
-    answers: ['{}','()','<>','[]'],
-    answerchosen: 3,
-},
-{
-    title: 'Which number is 1?',
-    answers: ['1','2','3','4'],
-    answerchosen: 1
-}
-]
-
+let allquestions = [
+  {
+    title: "What type of brackets show an arrey?",
+    a:"{}",
+    b:"()",
+    c:"<>",
+    d:"[]",
+    answerchosen: "d",
+  },
+  {
+    title: "Which number is 1?",
+    a: "1",
+    b: "2",
+    c: "3",
+    d: "4",
+    answerchosen: "a",
+  },
+];
 
 //trigger the button to start quiz
-startit.addEventListener('click', startQuiz)
+startit.addEventListener("click", startQuiz);
 function startQuiz() {
-    console.log('started')
-    startit.classList.add('hide')
-    questioning.classList.remove('hide')
-    answering.classList.remove('hide')
-    currentQuestion = 0 
+  console.log("started");
+  startit.classList.add("hide");
+  questioning.classList.remove("hide");
+  answering.classList.remove("hide");
+  render(allquestions);
 }
 
 //Show questions
-function showquestions(q){
-    let questionDiv = document.getElementById('title');
-    questionDiv.textContent = q.title;
-    var interval = setInterval(function(
-    ){
-        document.getElementById('count').innerHTML=count;
-        if (count < 0){
-            alert("You're out of time");
-        }
-    }, 20);
-    let answering = document.querySelectorAll('.ansbutton');
-    answering.forEach(function(element, index){
-        element.textContent = q.answers[index];
-        element.addEventListener('click', function() {
-            if(q.answerchosen == index) {
-                console.log('correctamundo');
-            }
-        });
-    });    
+function render(questionindex) {
+    questionscontainer.innerhtml=''
+  for (let i = 0; i < allquestions.length; i++) {
+    const currentquestion = allquestions[questionindex].title;
+    const currentanswers = allquestions[questionindex].answers;
+    allquestions.textConect = currentquestion;
+  }
 }
 
-showquestions(allquestions);
+
 
 //Save answers
-function answerchosen() {
-
-}
+function answerchosen() {}
 
 //highscores
