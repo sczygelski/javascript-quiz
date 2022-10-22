@@ -9,6 +9,8 @@ var buttond = document.getElementById("d");
 var submitit = document.getElementById("finalscore")
 var questionnn = document.getElementById("title")
 var scoreOutput = document.getElementById("score")
+var allscores = JSON.parse(localStorage.getItem("scoreOutput")) || []
+var highscores = document.getElementById("highscores")
 
 
 //questions
@@ -76,14 +78,25 @@ function checkanswers(answer) {
 
 //show scores
 function showscore(){
-
     submitit.classList.remove("hide")
-    //submitit.classList.add("show")
     scoreOutput.innerHTML = "You got " + score + "!"
-    console.log("stuck here")
+    localStorage.setItem("allscores", JSON.stringify("scoreOutput"))
 }
 
-//Save answers
+//Save scores
+function savescore(){
+  allscores.forEach(function(score) {
+    var li = document.createElement("li")
+    li.textContent=score
+    highscores.appendChild(li)
+    console.log("made it")
+  })
+
+}
+
+
 //function answerchosen()
 
 //highscores
+
+//clear storage
