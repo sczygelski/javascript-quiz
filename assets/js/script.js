@@ -7,12 +7,13 @@ var buttonb = document.getElementById("b");
 var buttonc = document.getElementById("c");
 var buttond = document.getElementById("d");
 var submitit = document.getElementById("finalscore")
+var questionnn = document.getElementById("title")
 
 
 //questions
 var allquestions = [
   {
-    title: "What type of brackets show an arrey?",
+    question: "What type of brackets show an arrey?",
     a: "{}",
     b: "()",
     c: "<>",
@@ -20,7 +21,7 @@ var allquestions = [
     answerchosen: "d",
   },
   {
-    title: "Which number is 1?",
+    question: "Which number is 1?",
     a: "1",
     b: "2",
     c: "3",
@@ -37,7 +38,6 @@ var questionindex = 0;
 //trigger the button to start quiz
 startit.addEventListener("click", startQuiz);
 function startQuiz() {
-  console.log("started");
   startit.classList.add("hide");
   questioning.classList.remove("hide");
   answering.classList.remove("hide");
@@ -46,35 +46,37 @@ function startQuiz() {
 
 //Show questions
 function startQuizing() {
-  var currentQuestion = allquestions[questionindex];
-  questioning.innerHTML = currentQuestion.title;
-  buttona.innerHTML = currentQuestion.a;
-  buttonb.innerHTML = currentQuestion.b;
-  buttonc.innerHTML = currentQuestion.c;
-  buttond.innerHTML = currentQuestion.d;
+    if (questionindex === finalindex){
+        showscore()
+    }
+  questionnn.innerHTML = allquestions[questionindex].question;
+  buttona.innerHTML = allquestions[questionindex].a;
+  buttonb.innerHTML = allquestions[questionindex].b;
+  buttonc.innerHTML = allquestions[questionindex].c;
+  buttond.innerHTML = allquestions[questionindex].d;
 }
 
 //check answers
 function checkanswers(answer) {
-  correct = allquestions[questionindex]
 
-  if (answer === correct && finalindex !== questionindex) {
+  if (answer === allquestions[questionindex].answerchosen && finalindex !== questionindex) {
     questionindex++;
     score++
-    startQuizing();
-  } else if (answer !== correct && finalindex !== questionindex) {
+    startQuizing(questionindex);
+    console.log(questionindex)
+  } else if (answer !== allquestions[questionindex].answerchosen && finalindex !== questionindex) {
     questionindex++;
-    startQuizing();
-    console.log("stuck here")
-  } else {
-    showscore();
-    submitit.classList.remove("hide")
+    startQuizing(questionindex);
+  } else if (finalindex !== allquestions.length) {
+    finalscore.innerHTML = "You got " + score + "!"
   }
 }
 
 //show scores
 function showscore(){
+    submitit.classList.remove("hide")
     finalscore.innerHTML = "You got " + score + "!"
+    console.log("stuck here")
 }
 
 //Save answers
