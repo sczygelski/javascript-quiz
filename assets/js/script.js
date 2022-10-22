@@ -30,6 +30,7 @@ let allquestions = [
 ];
 
 var finalquestion = allquestions.length;
+var score=0
 
 //trigger the button to start quiz
 startit.addEventListener("click", startQuiz);
@@ -53,13 +54,13 @@ function startQuizing() {
 
 //check answers
 function checkanswers(answer) {
-  correct = allquestions[currentQuestion].answerchosen;
+  correct = allquestions[questionindex].answerchosen;
 
-  if (answer === correct && currentQuestion !== finalquestion) {
-    currentQuestion++;
+  if (answer === correct && questionindex !== finalquestion) {
+    questionindex++;
     startQuizing();
-  } else if (answer !== correct && currentQuestion !== finalquestion) {
-    currentQuestion++;
+  } else if (answer !== correct && questionindex !== finalquestion) {
+    questionindex++;
     startQuizing();
   } else {
     showscore();
@@ -67,7 +68,9 @@ function checkanswers(answer) {
 }
 
 //show scores
-//function showscore()
+function showscore(){
+    finalscore.innerHTML = "You got " + score + "!"
+}
 
 //Save answers
 //function answerchosen()

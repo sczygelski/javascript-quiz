@@ -22,10 +22,14 @@
                     <h2 id="title count"></h2>
                 </section>
                 <div class="answers hide" id="answers">
-                    <button class="ansbutton" id="a"></button>
-                    <button class="ansbutton" id="b"></button>
-                    <button class="ansbutton" id="c"></button>
-                    <button class="ansbutton" id="d"></button>
+                    <button class="ansbutton" id="a" onclick="checkanswers('a')"></button>
+                    <button class="ansbutton" id="b" onclick="checkanswers('b')"></button>
+                    <button class="ansbutton" id="c" onclick="checkanswers('c')"></button>
+                    <button class="ansbutton" id="d" onclick="checkanswers('d')"></button>
+                </div>
+                <div id="finalscore">
+                    <input type="text" placeholder="Enter your initials" id="initials"/>
+                    <button id="submitbutton" size="20px">Submit your Score</button>
                 </div>
             </div>
         </main>
