@@ -8,6 +8,7 @@ var buttonc = document.getElementById("c");
 var buttond = document.getElementById("d");
 var submitit = document.getElementById("finalscore")
 var questionnn = document.getElementById("title")
+var scoreOutput = document.getElementById("score")
 
 
 //questions
@@ -48,6 +49,7 @@ function startQuiz() {
 function startQuizing() {
     if (questionindex === finalindex){
         showscore()
+        return
     }
   questionnn.innerHTML = allquestions[questionindex].question;
   buttona.innerHTML = allquestions[questionindex].a;
@@ -68,14 +70,16 @@ function checkanswers(answer) {
     questionindex++;
     startQuizing(questionindex);
   } else if (finalindex !== allquestions.length) {
-    finalscore.innerHTML = "You got " + score + "!"
+    scoreOutput.innerHTML = "You got " + score + "!"
   }
 }
 
 //show scores
 function showscore(){
+
     submitit.classList.remove("hide")
-    finalscore.innerHTML = "You got " + score + "!"
+    //submitit.classList.add("show")
+    scoreOutput.innerHTML = "You got " + score + "!"
     console.log("stuck here")
 }
 
