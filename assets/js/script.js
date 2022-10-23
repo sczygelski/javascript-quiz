@@ -51,7 +51,7 @@ function startQuiz() {
 function startQuizing() {
     if (questionindex === finalindex){
         showscore()
-        return
+   //     return
     }
   questionnn.innerHTML = allquestions[questionindex].question;
   buttona.innerHTML = allquestions[questionindex].a;
@@ -72,24 +72,26 @@ function checkanswers(answer) {
     questionindex++;
     startQuizing(questionindex);
   } else if (finalindex !== allquestions.length) {
-    scoreOutput.innerHTML = "You got " + score + "!"
   }
 }
 
 //show scores
 function showscore(){
     submitit.classList.remove("hide")
+    console.log("here!")
     scoreOutput.innerHTML = "You got " + score + "!"
-    localStorage.setItem("allscores", JSON.stringify("scoreOutput"))
 }
 
 //Save scores
 function savescore(){
   allscores.forEach(function(score) {
-    var li = document.createElement("li")
-    li.textContent=score
-    highscores.appendChild(li)
+    localStorage.setItem("thisscore", JSON.stringify(score))
+    console.log(localStorage.getItem(score))
+    // var li = document.createElement("li")
+    // li.textContent=score
+    // highscores.appendChild(li)
     console.log("made it")
+    // console.log(localStorage.getItem("allscores"))
   })
 
 }
